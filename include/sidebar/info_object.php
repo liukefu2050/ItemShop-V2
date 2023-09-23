@@ -15,25 +15,25 @@
 									<p class="text-danger font-weight-bold" data-countdown="<?php print $discount; ?>"></p>
 								</center>
 							</li>
-						<?php } 
+						<?php }
 							if($item[0]['expire']>0) {
 								$expire = date("Y-m-d H:i:s", $item[0]['expire']);
 						?>
 							<li class="list-group-item">
 								<center><p class="text-danger font-weight-bold" data-countdown="<?php print $expire; ?>"></p></center>
 							</li>
-						<?php } 
+						<?php }
 						if($item[0]['count']>1) { ?>
 							<li class="list-group-item">
 								<center><p class="text-info"><b><?php print ucfirst(strtolower($lang_shop['quantity'])).': '.$item[0]['count']; ?></b></p></center>
 							</li>
 						<?php } ?>
-						
+
 							<?php is_get_item($get_item); ?>
 											<?php
 												if(check_item_sash($item[0]['vnum']))
 													is_get_sash_bonuses($get_item);
-												
+
 												$lvl = get_item_lvl($item[0]['vnum']);
 												if($lvl) {
 											?>
@@ -46,7 +46,7 @@
 						</li>
 											<?php } if(get_item_name($item[0]['socket0']))
 														get_item_stones_market($get_item);
-											
+
 												if($item[0]['item_unique']==1 || $item[0]['item_unique']==2) { ?>
 						<li class="list-group-item">
 											<center><p class="text-info"><?php print $lang_shop['time_left']; ?>:</br> <b><?php is_get_item_time($get_item); ?></b></p></center>
@@ -55,7 +55,7 @@
 						<li class="list-group-item">
 											<?php if(is_loggedin()) { ?>
 											<button type="button" class="btn btn-success btn-block<?php if(is_coins($item[0]['pay_type']-1)<$total) print ' disabled'; ?>" data-toggle="modal" data-target="#myModal">
-												<img src="<?php print $shop_url; ?>images/<?php if($item[0]['pay_type']==1) print 'md'; else print 'jd'; ?>.png" title="MD"> 
+												<img src="<?php print $shop_url; ?>images/<?php if($item[0]['pay_type']==1) print 'md'; else print 'jd'; ?>.png" title="MD">
 												<?php
 													print $lang_shop['buy'].' (';
 													if($item[0]['discount']>0)
@@ -67,6 +67,7 @@
 												<div class="alert alert-dismissible alert-danger">
 												<button type="button" class="close" data-dismiss="alert">×</button>
 												<strong>Info:</strong> <?php print $lang_shop['authentication_required']; ?> </div>
+                                                <a href="/login">登陆</a>
 											<?php } ?>
 						</li>
 					</ul>

@@ -6,6 +6,7 @@ Language: English
 */
 
 $lang_shop = array(
+	'home' => '首页',
 	'site_title' => '市场',
 	'balance' => '钱包',
 	'view_inventory' => '查看库存',

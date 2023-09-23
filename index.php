@@ -8,9 +8,9 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	
+
     <title><?php print $lang_shop['site_title'].' - '.$server_name; ?></title>
-	
+
     <link rel="stylesheet" type="text/css" href="<?php print $shop_url; ?>assets/css/base.css" />
     <link rel="stylesheet" type="text/css" href="<?php print $shop_url; ?>assets/css/fonts.css" />
     <link rel="stylesheet" type="text/css" href="<?php print $shop_url; ?>assets/css/font-awesome.min.css" />
@@ -30,32 +30,38 @@
             <div class="navigation">
                 <a href="<?php print $shop_url; ?>"><img class="logo pulse" style="padding-top: 48px;" src="<?php print $shop_url; ?>images/logo.png">
                 </a>
+              <!--  <a href="/"><img class="logo pulse" style="padding-top: 48px;" src="<?php /*print $shop_url; */?>images/logo1.png">
+                </a>-->
                 <ul>
+                    <li>
+                        <a href="/"><i class="fa fa-user fa-2x"></i><span><?php print $lang_shop['home']; ?></span></a>
+                    </li>
                     <li>
                         <a href="<?php print $shop_url; ?>"><i class="fa fa-shopping-cart fa-2x"></i> <span><?php print $lang_shop['site_title']; ?></span></a>
                     </li>
-					<?php if(!is_loggedin()) { ?>
+
+					<?php /*if(!is_loggedin()) { */?><!--
                     <li>
-                        <a href="<?php print $shop_url; ?>login"><i class="fa fa-user fa-2x"></i><span><?php print $lang_shop['login']; ?></span></a>
+                        <a href="<?php /*print $shop_url; */?>login"><i class="fa fa-user fa-2x"></i><span><?php /*print $lang_shop['login']; */?></span></a>
                     </li>
-					<?php } else { ?>
+					<?php /*} else { */?>
                     <li>
-                        <a href="<?php print $shop_url; ?>logout"><i class="fa fa-user-times fa-2x"></i><span><?php print $lang_shop['logout']; ?></span></a>
+                        <a href="<?php /*print $shop_url; */?>logout"><i class="fa fa-user-times fa-2x"></i><span><?php /*print $lang_shop['logout']; */?></span></a>
                     </li>
-					<?php } if(is_loggedin() && is_paypal_list()) { ?>
+					<?php /*} if(is_loggedin() && is_paypal_list()) { */?>
                     <li>
-                        <a href="<?php print $shop_url; ?>buy/coins"><i class="fa fa-money fa-2x"></i><span><?php print $lang_shop['pay']; ?></span></a>
+                        <a href="<?php /*print $shop_url; */?>buy/coins"><i class="fa fa-money fa-2x"></i><span><?php /*print $lang_shop['pay']; */?></span></a>
                     </li>
-					<?php } ?>
+					<?php /*} */?>
 					<li class="nav-item dropdown">
-						<a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true"><i class="fa fa-language fa-2x"></i><span><?php print $language_codes[$language_code]; ?></span></a>
+						<a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true"><i class="fa fa-language fa-2x"></i><span><?php /*print $language_codes[$language_code]; */?></span></a>
 						<div class="dropdown-menu">
 								<?php
-									foreach($language_codes as $key => $value)
+/*									foreach($language_codes as $key => $value)
 										print '<a href="'.$shop_url.'?lang='.$key.'" data-toggle="tooltip" data-placement="right" title="" data-original-title="'.$value.'"><img src="'.$shop_url.'assets/img/language/'.$key.'.png" style="width: 50px;"></a>';
-								?>
+								*/?>
 						</div>
-					</li>
+					</li>-->
                 </ul>
                 <div class="clearfix"></div>
             </div>
@@ -107,20 +113,20 @@
 							default:
 								include 'pages/shop/home.php';
 						}
-						
+
 						if(!is_loggedin() && $current_page!='login')
 						{
 					?>
 					<div class="jumbotron">
-						<form action="<?php print $shop_url; ?>login" method="post" class="form-inline justify-content-center">
-							<label class="sr-only" for="inlineFormInput"><?php print $lang_shop['name_login']; ?></label>
-							<input class="form-control mb-4 mr-sm-4 mb-sm-0" name="username" id="username" pattern=".{5,64}" maxlength="64" placeholder="<?php print $lang_shop['name_login']; ?>" required="" type="text" autocomplete="off">
+						<!--<form action="<?php /*print $shop_url; */?>login" method="post" class="form-inline justify-content-center">
+							<label class="sr-only" for="inlineFormInput"><?php /*print $lang_shop['name_login']; */?></label>
+							<input class="form-control mb-4 mr-sm-4 mb-sm-0" name="username" id="username" pattern=".{5,64}" maxlength="64" placeholder="<?php /*print $lang_shop['name_login']; */?>" required="" type="text" autocomplete="off">
 
-							<label class="sr-only" for="inlineFormInputGroup"><?php print $lang_shop['password']; ?></label>
-							<input class="form-control input-group mb-4 mr-sm-4 mb-sm-0" name="password" id="password" pattern=".{5,16}" maxlength="16" placeholder="<?php print $lang_shop['password']; ?>" required="" type="password">
+							<label class="sr-only" for="inlineFormInputGroup"><?php /*print $lang_shop['password']; */?></label>
+							<input class="form-control input-group mb-4 mr-sm-4 mb-sm-0" name="password" id="password" pattern=".{5,16}" maxlength="16" placeholder="<?php /*print $lang_shop['password']; */?>" required="" type="password">
 
-							<button type="submit" class="btn btn-primary"><?php print $lang_shop['login2']; ?></button>
-						</form>
+							<button type="submit" class="btn btn-primary"><?php /*print $lang_shop['login2']; */?></button>
+						</form>-->
 					</div>
 					<?php } ?>
                 </div>
@@ -132,9 +138,9 @@
                 <div class="sidebar">
 				<?php
 					$padding_md='';
-					
+
 					$donate = false;
-					
+
 					if(is_paypal_list())
 					{
 						print '<a href="'.$shop_url.'buy/coins" data-toggle="tooltip" data-placement="left" title="" data-original-title="'.$lang_shop['pay'].'">';
@@ -154,7 +160,7 @@
 
 					if($current_page=='item')
 						include 'include/sidebar/info_object.php';
-					
+
 					if(is_loggedin()) {
 				?>
 					<ul class="list-group">
@@ -181,7 +187,7 @@
             <div class="copyright">
 				<div class="col-md-12 p-info">
 					<p class="pull-left">
-							&copy; Copyright <?php 
+							&copy; Copyright <?php
 													$copyright_year = date('Y');
 													if($copyright_year > 2017)
 														print '2017 - '.$copyright_year;
@@ -189,18 +195,16 @@
 													print ' '.$server_name;
 												?>
 					</p>
-					<p class="pull-right">
-						Powered by <a href="https://metin2cms.cf/">Metin2CMS</a>
-					</p>
+
 				</div>
             </div>
         </div>
     </div>
-	
+
 </body>
     <script src="<?php print $shop_url; ?>assets/js/jquery.js"></script>
     <script src="<?php print $shop_url; ?>assets/js/tether.min.js"></script>
     <script src="<?php print $shop_url; ?>assets/js/bootstrap.min.js"></script>
-	
+
 	<?php include 'include/functions/js.php'; ?>
 </html>
