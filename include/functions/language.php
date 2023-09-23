@@ -8,58 +8,61 @@
 	else if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE']))
 		$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 	else
-		$lang = 'en';
-	
+		$lang = 'cn';
+
 	switch ($lang) {
 		case 'en':
 		$language_code = "en";
 		break;
-	 
+        case 'cn':
+            $language_code = "cn";
+            break;
 		case 'ro':
 		$language_code = "ro";
 		break;
-		
+
 		case 'de':
 		$language_code = "de";
 		break;
-		
+
 		case 'es':
 		$language_code = "es";
 		break;
-		
+
 		case 'fr':
 		$language_code = "fr";
 		break;
-		
+
 		case 'it':
 		$language_code = "it";
 		break;
-		
+
 		case 'pt':
 		$language_code = "pt";
 		break;
-		
+
 		case 'tr':
 		$language_code = "tr";
 		break;
-	 
+
 		default:
 		$language_code = "ro";
 	}
-	
+
 	$_SESSION['lang'] = $language_code;
 	setcookie('lang', $language_code, time() + (3600 * 24 * 30));
-	
+
 	include 'include/languages/'.$language_code.'.php';
-	
-	
+
+
 	$language_codes = array(
-			'en' => 'English' , 
-			'ro' => 'Română' , 
-			'fr' => 'Français' , 
-			'it' => 'Italiano' , 
-			'pt' => 'Português' , 
-			'tr' => 'Türk' , 
-			'de' => 'Deutsch' , 
+            'cn' => '中文' ,
+			'en' => 'English' ,
+			'ro' => 'Română' ,
+			'fr' => 'Français' ,
+			'it' => 'Italiano' ,
+			'pt' => 'Português' ,
+			'tr' => 'Türk' ,
+			'de' => 'Deutsch' ,
 			'es' => 'Español');
 ?>
